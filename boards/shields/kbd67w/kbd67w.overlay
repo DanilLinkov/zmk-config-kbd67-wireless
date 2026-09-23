@@ -11,6 +11,11 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 
+/* Pads "009" and "010" (P0.09/P0.10) default to NFC; we use them as key columns. */
+&uicr {
+    nfct-pins-as-gpios;
+};
+
 / {
     chosen {
         zmk,kscan = &kscan0;

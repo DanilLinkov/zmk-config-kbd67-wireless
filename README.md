@@ -96,7 +96,5 @@ The controller pads are the numbers printed on the SuperMini. ZMK drives the col
 
 ## Settings worth knowing
 
-Settings live in `config/kbd67w.conf`:
-
-- **`CONFIG_NFCT_PINS_AS_GPIOS=y`:** frees pads `009` and `010` to use as key columns.
-- **`CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y`:** works around unreliable crystals on some SuperMini clones. You can remove it on a genuine nice!nano.
+- **`nfct-pins-as-gpios` on `&uicr`**, in the shield overlay: frees pads `009` and `010` to use as key columns.
+- **`CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y`**, in `config/kbd67w.conf`: works around unreliable crystals on some SuperMini clones. You can remove it on a genuine nice!nano.

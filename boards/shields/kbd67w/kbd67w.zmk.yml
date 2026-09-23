@@ -1,0 +1,8 @@
+file_format: "1"
+id: kbd67w
+name: KBD67 Wireless
+type: shield
+url: https://github.com/DanilLinkov/zmk-config-kbd67-wireless
+requires: [pro_micro]
+features:
+  - keys

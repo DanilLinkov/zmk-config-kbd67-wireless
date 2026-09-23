@@ -1,0 +1,7 @@
+if SHIELD_KBD67W
+
+# Bluetooth name. Must be shorter than 16 characters.
+config ZMK_KEYBOARD_NAME
+    default "KBD67 Wireless"
+
+endif

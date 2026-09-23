@@ -1,0 +1,12 @@
+# GitHub Actions builds these on every push. Download the firmware from the
+# run's "Artifacts" section.
+---
+include:
+  # The keyboard, with ZMK Studio enabled for live remapping over USB.
+  - board: nice_nano_v2
+    shield: kbd67w
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+  # Flash this to wipe stored Bluetooth pairings and settings, then reflash kbd67w.
+  - board: nice_nano_v2
+    shield: settings_reset

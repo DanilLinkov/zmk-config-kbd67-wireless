@@ -1,11 +1,12 @@
 /*
- * KBD67 Lite R2 (KBD67 MKII RGB V3 PCB) converted to wireless with a
+ * KBD67 Lite R2 (KBD67 MKII RGB V2 PCB) converted to wireless with a
  * nice!nano-compatible nRF52840 controller (SuperMini). ATmega32U4 removed;
  * the PCB's 5x15 COL2ROW matrix is hand-wired to the controller.
  *
  * Pad names below are the numbers printed on the SuperMini (e.g. "031" = P0.31).
- * Matrix positions come from QMK keyboards/kbdfans/kbd67/mkiirgb/v3.
- * Spare pin: "107" (P1.07).
+ * Matrix positions come from QMK keyboards/kbdfans/kbd67/mkiirgb/v2.
+ * Pad "020" (P0.20) lost its connection to the chip on this SuperMini (2026-09-27),
+ * so C3 uses the old spare pad "107" (P1.07). No spare pads are left.
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
@@ -39,7 +40,7 @@
             = <&gpio0  6 GPIO_ACTIVE_HIGH>  /* C0 : pad "006" */
             , <&gpio0  8 GPIO_ACTIVE_HIGH>  /* C1 : pad "008" */
             , <&gpio0 17 GPIO_ACTIVE_HIGH>  /* C2 : pad "017" */
-            , <&gpio0 20 GPIO_ACTIVE_HIGH>  /* C3 : pad "020" */
+            , <&gpio1  7 GPIO_ACTIVE_HIGH>  /* C3 : pad "107" (pad "020" is dead) */
             , <&gpio0 22 GPIO_ACTIVE_HIGH>  /* C4 : pad "022" */
             , <&gpio0 24 GPIO_ACTIVE_HIGH>  /* C5 : pad "024" */
             , <&gpio1  0 GPIO_ACTIVE_HIGH>  /* C6 : pad "100" */

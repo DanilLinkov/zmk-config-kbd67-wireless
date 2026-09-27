@@ -1,6 +1,6 @@
 # KBD67 Wireless — ZMK firmware
 
-This firmware is for a **KBD67 Lite R2** (KBD67 MKII RGB **V3** PCB) that has been converted to Bluetooth. The original ATmega32U4 chip is removed. The PCB's 5 × 15 key matrix is then wired by hand to a nice!nano-compatible **nRF52840 SuperMini**, which runs [ZMK](https://zmk.dev) v0.3.
+This firmware is for a **KBD67 Lite R2** (KBD67 MKII RGB **V2** PCB) that has been converted to Bluetooth. The original ATmega32U4 chip is removed. The PCB's 5 × 15 key matrix is then wired by hand to a nice!nano-compatible **nRF52840 SuperMini**, which runs [ZMK](https://zmk.dev) v0.3.
 
 - It pairs over Bluetooth as **"KBD67 Wireless"** (up to 5 devices) and also works over USB.
 - The per-key RGB is not used. Its driver chip stays unpowered, so it doesn't drain the battery.
@@ -48,7 +48,7 @@ The controller pads are the numbers printed on the SuperMini. ZMK drives the col
 | `006` | C0 | Esc |
 | `008` | C1 | 1 |
 | `017` | C2 | 2 |
-| `020` | C3 | 3 |
+| `107` | C3 | 3 (moved from `020`, which is dead on this SuperMini) |
 | `022` | C4 | 4 |
 | `024` | C5 | 5 |
 | `100` | C6 | 6 |
@@ -61,15 +61,14 @@ The controller pads are the numbers printed on the SuperMini. ZMK drives the col
 | `101` | C13 | Backspace |
 | `102` | C14 | Home |
 
-- **Spare pad:** `107`.
-- **Where to solder on the PCB:**
-  - **Columns:** use a hot-swap socket pad of that column's number-row key.
-  - **Rows:** use the row-side pad of any diode in that row.
+- **Spare pad:** none. `107` now carries C3.
+- **Where to solder on the PCB** (measured with a multimeter):
+  - **Columns:** the top end of one of that column's diodes (the end further from you, with the PCB face down and the number row nearest you).
+  - **Rows:** the right tab of one hot-swap socket in that row.
   - Confirm every joint with a multimeter continuity test before closing the case.
-  - The exact solder points on the V3 board get confirmed from photos before soldering.
 - **Power:** battery − → `B-`; battery + → slide switch → `B+`. The switch has to be on for the battery to charge.
 - **Charging:** bridge the `BOOST` jumper for 300 mA charging. Only do this with batteries over 500 mAh. This build uses 1250 mAh.
-- **Matrix map:** key positions follow QMK `keyboards/kbdfans/kbd67/mkiirgb/v3`. Enter is on `RC(2,13)` and right Alt is on `RC(4,8)`.
+- **Matrix map:** key positions follow QMK `keyboards/kbdfans/kbd67/mkiirgb/v2`. Enter is on `RC(2,13)` and right Alt is on `RC(4,8)`.
 
 ## Keymap
 
